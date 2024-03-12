@@ -27,7 +27,7 @@ const MenuWrapper = ( ) => {
         <a
           href="https://www.instagram.com/stories/highlights/18017864429110043/"
           target="_blank"
-          rel="noopener" 
+          rel="noreferrer"
           className="btn-primary"
         >
           View More
