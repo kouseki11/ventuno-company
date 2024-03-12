@@ -30,7 +30,7 @@ const About = () => {
             harfiah, "Ventuno Company" dapat diartikan sebagai "Perusahaan Dua
             Puluh Satu."
           </p>
-          <a href="https://instagram.com/ventuno.idn" target="_blank" rel="noopener noreferrer" className="btn-primary">Read More</a>
+          <a href="https://instagram.com/ventuno.idn" target="_blank" rel="noopener" className="btn-primary">Read More</a>
         </div>
       </div>
     </div>
