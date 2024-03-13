@@ -12,11 +12,11 @@ const Modal = ({ isOpen, closeModal, productTitle }) => {
   const [preOrder, setPreOrder] = useState(true)
 
   useEffect(() => {
-    if (!isOpen) {
-      setQuantity(""); 
-      formRef.current.reset(); 
-    }
-  }, [isOpen]);
+    if (!isOpen || !formRef.current) return; 
+  
+    setQuantity(""); 
+    formRef.current.reset(); 
+  }, [isOpen, formRef.current]);
 
   const handleChange = (event) => {
     const newQuantity = parseInt(event.target.value, 10);
