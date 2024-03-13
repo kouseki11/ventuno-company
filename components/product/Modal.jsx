@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,14 +9,21 @@ const Modal = ({ isOpen, closeModal, productTitle }) => {
   const scriptUrl = process.env.NEXT_PUBLIC_API_URL;
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState();
-  const [preOrder, setPreOrder] = useState(false)
+  const [preOrder, setPreOrder] = useState(true)
+
+  useEffect(() => {
+    if (!isOpen) {
+      setQuantity(""); 
+      formRef.current.reset(); 
+    }
+  }, [isOpen]);
 
   const handleChange = (event) => {
     const newQuantity = parseInt(event.target.value, 10);
     if (Number.isInteger(newQuantity) && newQuantity > 0) {
       setQuantity(newQuantity);
     } else {
-      setQuantity(""); // Reset to 0 or display error message
+      setQuantity(""); 
     }
   };
 
