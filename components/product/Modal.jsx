@@ -9,7 +9,14 @@ const Modal = ({ isOpen, closeModal, productTitle }) => {
   const scriptUrl = process.env.NEXT_PUBLIC_API_URL;
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState();
-  const [preOrder, setPreOrder] = useState(false)
+  const [preOrder, setPreOrder] = useState(true)
+
+  useEffect(() => {
+    if (!isOpen) {
+      setQuantity(""); 
+      formRef.current.reset(); 
+    }
+  }, [isOpen]);
 
   const handleChange = (event) => {
     const newQuantity = parseInt(event.target.value, 10);
